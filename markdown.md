@@ -43,17 +43,44 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
  ![full_size_img](img/design-patterns-bureaucracy.png)
       
 ---
+# what an Object is in Javascript
+---
+# classes are build on top of protypes design pattern
+
+https://www.youtube.com/channel/UCO1cgjhGzsSYb1rsB4bFe4Q/search?query=class
+---
+
 # Introduction (3/3)
 
 #### History of React
-* Jordan Walke is credited with creating React.JS 
-    - Will working at facebook
 
-https://www.youtube.com/watch?v=GW0rj4sNH2w
-https://www.reactiflux.com/transcripts/jordan-walke/
+.going-deeper[
+#### Sources
+
+* [Tom Occhino and Jordan Walke: JS Apps at Facebook](https://www.youtube.com/watch?v=GW0rj4sNH2w)
+
+* [Facebook Engineer | Creator of React.js & Reason](https://www.reactiflux.com/transcripts/jordan-walke/)
+* [React.js Conf 2015 Keynote](https://youtu.be/KVZ-P-ZI6W4)
+]
+* Jordan Walke is credited with creating React.JS 
+    - While working at facebook
+
+* React was created inside Facebook's Ads Organization
+    - predecessor being [XHP](https://www.facebook.com/notes/facebook-engineering/xhp-a-new-way-to-write-php/294003943919/) (PHP framework)
+* Created to improve speed of writing code, managing a huge codebase, and prevent cross site scripting
+
+* React's state is immuablty so that somewhere deep in that app, the views change case a conflict in the state.(a Cascading Update) (provide example)
+
+* React started out being used for the like and comment section of Facebook
+
+* React became open source, out of a need to decouple itself from the Facebook site and 
+be able to let instagram use the framework as well. (finished at JS Conf 2013)
+
 ---
 # Immutability in Javascript
 
+---
+# Composition
 ---
 # Just so you know...
 ---
