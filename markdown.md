@@ -75,16 +75,20 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 * React is loosely coupled framework
 ---
 # what an Object is in Javascript
+
+* functions are objects (crazy isn't it?)
 ---
 # Class Keyword
    
 * Classes have no since of system composition or type
 
+* Just recently added to javascript in ecmascript 6
+
 
 https://www.youtube.com/watch?v=Tllw4EPhLiQ
 ---
 ## basic example of a class
-<iframe width="100%" height="300" src="//jsfiddle.net/cjoshmartin/9LvjLL31/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="310" src="//jsfiddle.net/cjoshmartin/9LvjLL31/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 ---
 ## Functions
 <iframe width="100%" height="400" src="//jsfiddle.net/cjoshmartin/8ehkrrgn/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
@@ -112,7 +116,75 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prot
 * Prototypes is how Javscript achieves inheritance
 
 
-* This Prototype modal allows to use the `new` keyword on our functions and classes
+* This Prototype modal allows to use the `new` keyword on our functions and classes in javascript.
+
+* Pure object use the keyword `__proto__`
+
+* functions use the keyword `prototype`
+---
+# what does the `new` keyword do?
+--
+
+* creates an object and check the prototype of whatever it is being called on (e.g. `const josh = new person('Josh');` )
+
+--
+
+* lets create our own
+
+--
+
+```javascript
+function new(this_instance)
+{
+    let obj ={} // 1) create a new object
+
+   Object.setPrototypeof(obj,this_instance.prototype) // 2) set the prototype
+
+// arguments is a reserved keyword
+  let args_arr = Array.prototype.slice.apply(arguments)
+
+// returns a class instance  || an obj 
+// 3) execute constructor with "this" & (sometimes) return created object
+   return this_instance.apply(obj,args_arr.slice(1)) || obj 
+}
+
+const josh = new(person, 'Josh');
+```
+
+https://youtu.be/Y3zzCY62NYc
+---
+# Prototype vs Classes
+![diff_of_proto_and_class](img/diff_proto_vs_class.png)
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model
+---
+## Recreate this using prototypes
+<iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/hak37x3b/1/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+---
+## Create our basic "class"
+```javascript
+// Basic `class` and defualt constructor
+function hello(name){
+  this.name = name;
+}
+
+// Adding a function to our `class` of `talk`
+hello.prototype.talk = function(){
+  return `Hello ${this.name}!`
+}
+
+// Create a instance and use it!
+const say_hello = new hello('Josh');
+const selector = document.querySelector('.test-center');
+selector.innerHTML = say_hello.talk();
+```
+---
+## Lets extend our basic "class" like normal
+
+<iframe width="100%" height="450" src="//jsfiddle.net/cjoshmartin/kaqxfkLz/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+---
+## Lets extand our basic "class" only using prototypes
+<iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/8m3hon57/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 ---
 # Immutability in Javascript
 
