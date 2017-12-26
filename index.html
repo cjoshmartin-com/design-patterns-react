@@ -34,6 +34,12 @@ h1, h2, h3 {
           padding-bottom: 0;
           margin-bottom: 0;
       }
+      .remark-inline-code{
+          background-color: rgba(0,0,0,.2);
+          font-size: .875em;
+          padding: .1em .25em;
+          border-radius: .25em;
+      }
 </style>
   </head>
   <body>
@@ -44,7 +50,9 @@ h1, h2, h3 {
     </script>
     <script>
 var slideshow = remark.create({
-    sourceUrl: 'markdown.md'
+    sourceUrl: 'markdown.md',
+    highlightLanguage: 'javascript',
+    highlightStyle: 'tomorrow-night-bright', 
 });
     </script>
   </body>

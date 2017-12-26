@@ -7,7 +7,7 @@ Josh Martin
 
 https://cjoshmartin.com
 
-contact@cjoshmartin.com
+[contact@cjoshmartin.com](mailto:contact@cjoshmartin.com)
 
 ---
 
@@ -72,6 +72,7 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 * React became open source, out of a need to decouple itself from the Facebook site and be able to let instagram use the framework as well. (finished at JS Conf 2013)
 ---
 # Coupling
+* React is loosely coupled framework
 ---
 # what an Object is in Javascript
 ---
@@ -102,13 +103,16 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 
 <iframe width="100%" height="400" src="//jsfiddle.net/cjoshmartin/7j8nxod1/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0">
 
-
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
 ---
 # what is a Prototype?
 
 * Creational Design Pattern
-* Prototupes is how Javscript achieves inheritance
+
+* Prototypes is how Javscript achieves inheritance
+
+
+* This Prototype modal allows to use the `new` keyword on our functions and classes
 ---
 # Immutability in Javascript
 
@@ -117,8 +121,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prot
 ---
 # Obserables
 ---
+class: center, middle
 # Just so you know...
 ---
+class: center, middle
 # if you didnt know
 ---
 # React is a MVC framework
