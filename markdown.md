@@ -71,27 +71,15 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 
 * React became open source, out of a need to decouple itself from the Facebook site and be able to let instagram use the framework as well. (finished at JS Conf 2013)
 ---
- ![full_size_img](img/design-patterns-bureaucracy.png)
----
-# Inheritance
----
-# Composition
----
-# Compistion VS. Inhertance     
+# Coupling
 ---
 # what an Object is in Javascript
 ---
-# Protypes
-class -> protypes
----
-# classes are build on top of protypes design pattern
-
-
-*   Javascript does not have classes
-
-*   this so called `classes` in javascript are build on top of protoypes inheritance model
+# Class Keyword
    
-* classes have no since of system composition or type
+* Classes have no since of system composition or type
+
+
 https://www.youtube.com/watch?v=Tllw4EPhLiQ
 ---
 ## basic example of a class
@@ -102,6 +90,12 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 ---
 ## Inheritance
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/hak37x3b/1/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+---
+# Inheritance
+---
+# Composition
+---
+# Compistion VS. Inhertance     
 ---
 ## Surprise!!
 * Classes are just abstractions on top of the **Prototype Inheritance Model**
@@ -119,6 +113,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prot
 # Immutability in Javascript
 
 ---
+# State
+---
+# Obserables
+---
 # Just so you know...
 ---
 # if you didnt know
@@ -128,7 +126,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prot
 - Comparable to the Observer Pattern
 - (define what MVC is!)
 ---
-# Obserables
-
+# Factories
 ---
-# State
+ ![full_size_img](img/design-patterns-bureaucracy.png)
+---
+# End
