@@ -42,7 +42,7 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 ---
 # Introduction (3/3)
 
-#### History of React(1/2)
+#### History of React (1/2)
 
 .going-deeper[
 #### Sources
@@ -63,13 +63,161 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 ---
 # Introduction (3/3)
 
-#### History of React(2/2)
+#### History of React (2/2)
 
 * React's state is immuablty so that somewhere deep in that app, the views change case a conflict in the state.(a Cascading Update) (provide example)
 
 * React started out being used for the like and comment section of Facebook
 
 * React became open source, out of a need to decouple itself from the Facebook site and be able to let instagram use the framework as well. (finished at JS Conf 2013)
+---
+# Scope and Immutability 
+--
+
+* variables and functions are hoisted in javascript
+```javascript
+    // expected: ReferenceError: a is not defined
+    console.log(a) 
+    var a = 1;
+```
+--
+```javascript
+    // reality: will return undefined
+    var a;
+    console.log(a)
+    a = 1;
+```
+---
+# Scope and Immutability 
+--
+
+ * `var`
+
+--
+    - functionally scoped
+--
+
+```javascript
+    // what we see
+    function tacos()
+    {
+        // ... 
+
+        for (var i=0; i< 1; i++)
+        {
+            console.log('I like tacos\n')
+        }
+    }
+```
+--
+```javascript
+    // what javascript see
+    function tacos()
+    {
+        var i; // always hoisted to the top of the function
+
+        // ... 
+
+        for (i=0; i< 1; i++)
+        {
+            console.log('I like tacos\n')
+        }
+    }
+```
+---
+# Scope and Immutability 
+
+--
+ * `gobal variables`
+
+--
+    - `var` can became globally scoped, if not inside a function
+--
+
+    - Type a variable with out a variable type, that variable will become gobally scoped
+
+```javascript
+    (
+     function() {
+     for (i = 0; i < 1; i++) {i /* does nothing */ }
+     } // end of function
+    )() // this special syntax tells javascript to run the function immediately 
+
+    // expected: ReferenceError: i is not defined
+    // reality: Array starts at 1
+    console.log('Array starts at', i) 
+ ```
+---
+# Scope and Immutability 
+
+* How do we this problem of scope?
+
+--
+    - use `"use strict";` at the top of your javascript files
+
+```javascript
+    "use strict";
+
+    (
+     function() {
+     for (i = 0; i < 1; i++) {i /* does nothing */ }
+     } // end of function
+    )() // this special syntax tells javascript to run the function immediately 
+
+    // expected: ReferenceError: i is not defined
+    // reality: ReferenceError: i is not defined
+    console.log('Array starts at', i) 
+```
+
+--
+    
+* don't use `var` (unless you want a global scope)
+
+--
+    - use `let` and `const` instead
+---
+
+# Scope and Immutability 
+--
+
+ * `let`
+    - Blocked scoped
+    - **Mutable** meaning the value can be changed later on
+--
+
+```javascript
+    // what we see
+    function tacos()
+    {
+        // ... 
+
+        for (let i=0; i< 1; i++)
+        {
+            console.log('I like tacos\n')
+        }
+    }
+```
+--
+```javascript
+    // what javascript see
+    function tacos()
+    {
+        // ... 
+
+        for (let i=0; i< 1; i++)
+        {
+            console.log('I like tacos\n')
+        }
+    }
+```
+---
+
+# Scope and Immutability 
+
+--
+ * `const`
+    - Blocked scoped
+    - **Immutable** meaning the value **cannot** be reassigned later on
 ---
 # Coupling
 * React is loosely coupled framework
@@ -185,9 +333,6 @@ selector.innerHTML = say_hello.talk();
 ---
 ## Lets extand our basic "class" only using prototypes
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/8m3hon57/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
----
-# Immutability in Javascript
-
 ---
 # State
 ---
