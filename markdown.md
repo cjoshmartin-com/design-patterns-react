@@ -35,10 +35,13 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 #### Types of Design Patterns
 
 1. Creational
+    -   Concerned with the process of creating objects
 
 2. Structural
+    - concerned with the stuture of objects
 
 3. Behavioral
+    - concerned with how objects interact
 ---
 # Introduction (3/3)
 
@@ -253,6 +256,18 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
 --
 
 * React is loosely coupled framework
+--
+
+* **Coupling** is the degree of interdependence between software modules.
+
+    - Tighly Coupled
+    - Loosely Coupled
+--
+
+*  **Cohesion** is the degree of which elements inside a component belong together
+
+    - Loosely Coupling -> High Cohesion
+    - Tighly Coupled -> Low Cohesion
 ---
 # what an Object is in Javascript
 
@@ -366,6 +381,9 @@ selector.innerHTML = say_hello.talk();
 ## Lets extand our basic "class" only using prototypes
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/8m3hon57/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 ---
+# Adapter
+* Babel
+---
 # State
 ---
 # Obserables
@@ -382,7 +400,5 @@ class: center, middle
 - (define what MVC is!)
 ---
 # Factories
----
- ![full_size_img](img/design-patterns-bureaucracy.png)
 ---
 # End
