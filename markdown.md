@@ -239,7 +239,7 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
     - In React, `props` are immutable. Which prevents a conflict in their shared state.
 --
 
-![broken computer](img/computer-problem.jpg)
+.center[![broken computer](img/computer-problem.jpg)]
 ---
 # Scope and Immutability 
 
@@ -250,7 +250,7 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
 ---
 
 # Scope and Immutability 
-![bad-state](img/bad-state.jpg)
+.center[![bad-state](img/bad-state.jpg)]
 ---
 # Coupling
 --
@@ -275,7 +275,6 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
 ---
 # Class Keyword
    
-* Classes have no since of system composition or type
 
 * Just recently added to javascript in ECMAScript 6
 
@@ -292,8 +291,20 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/hak37x3b/1/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 ---
 # Inheritance
+    
+* When an object is derived from another object
+
+* "Is A" relationship 
+
+.center[![Inheritance](img/inheritance.png)]
 ---
 # Composition
+
+* Type of Aggregation
+    - Aggregation is when compose a component such that it made of up of other component
+
+    - "Has a" relationship
+
 ---
 # Compistion VS. Inhertance     
 ---
