@@ -134,7 +134,7 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
     - `var` can became globally scoped, if not inside a function
 --
 
-    - Type a variable with out a variable type, that variable will become gobally scoped
+    - Type a variable with out a variable type and that variable will become gobally scoped
 
 ```javascript
     (
@@ -171,7 +171,7 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 
 --
     
-* don't use `var` (unless you want a global scope)
+* Don't use `var` 
 
 --
     - use `let` and `const` instead
@@ -182,6 +182,7 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 
  * `let`
     - Blocked scoped
+    - doesn't add a property on the gobal object (e.g. window), like `var` does
     - **Mutable** meaning the value can be changed later on
 --
 
@@ -210,6 +211,7 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
         }
     }
 ```
+
 ---
 
 # Scope and Immutability 
@@ -218,8 +220,38 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
  * `const`
     - Blocked scoped
     - **Immutable** meaning the value **cannot** be reassigned later on
+
+```javascript
+    const immutable = 'nana-a-boo-boo, you cannot change my value';
+    
+    immutable = 'I will try'; // TypeError: Assignment to constant variable.
+```
+
+https://scotch.io/tutorials/understanding-hoisting-in-javascript
+---
+
+# Scope and Immutability 
+
+*   Immutability is a great feature
+    - In React, `props` are immutable. Which prevents a conflict in their shared state.
+--
+
+![broken computer](img/computer-problem.jpg)
+---
+# Scope and Immutability 
+
+*   Immutability is a great feature
+    - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
+![full_size_img](img/thumbs-and-money.webp)
+---
+
+# Scope and Immutability 
+![bad-state](img/bad-state.jpg)
 ---
 # Coupling
+--
+
 * React is loosely coupled framework
 ---
 # what an Object is in Javascript
@@ -230,7 +262,7 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
    
 * Classes have no since of system composition or type
 
-* Just recently added to javascript in ecmascript 6
+* Just recently added to javascript in ECMAScript 6
 
 
 https://www.youtube.com/watch?v=Tllw4EPhLiQ
