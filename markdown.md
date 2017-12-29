@@ -56,10 +56,10 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 * [React.js Conf 2015 Keynote](https://youtu.be/KVZ-P-ZI6W4)
 ]
 * Jordan Walke is credited with creating React.JS 
-    - While working at facebook
+    - While working at Facebook
 
 * React was created inside Facebook's Ads Organization
-    - predecessor being [XHP](https://www.facebook.com/notes/facebook-engineering/xhp-a-new-way-to-write-php/294003943919/) (PHP framework)
+    - predecessor being [XHP](https://www.Facebook.com/notes/Facebook-engineering/xhp-a-new-way-to-write-php/294003943919/) (PHP framework)
 
 * Created to improve speed of writing code, managing a huge codebase, and prevent cross site scripting
 
@@ -68,7 +68,7 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 
 #### History of React (2/2)
 
-* React's state is immuablty so that somewhere deep in that app, the views change case a conflict in the state.(a Cascading Update) (provide example)
+* React's state is Immutability so that somewhere deep in that app, the views change case a conflict in the state. (A Cascading Update)
 
 * React started out being used for the like and comment section of Facebook
 
@@ -312,7 +312,7 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 
     - "Has a" relationship
 
-* focused on what a thing does and not what it is
+* focused on what a thing does and not how things realated to one another
 ---
 ## Surprise!!
 * Classes are just abstractions on top of the **Prototype Inheritance Model**
