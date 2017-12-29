@@ -250,6 +250,10 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
 ---
 
 # Scope and Immutability 
+
+*   Immutability is a great feature
+    - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
 .center[![bad-state](img/bad-state.jpg)]
 ---
 # Coupling
@@ -269,10 +273,13 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
     - Loosely Coupling -> High Cohesion
     - Tighly Coupled -> Low Cohesion
 ---
+<!---
 # what an Object is in Javascript
 
 * functions are objects (crazy isn't it?)
----
+
+--->
+
 # Class Keyword
    
 
@@ -305,8 +312,7 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 
     - "Has a" relationship
 
----
-# Compistion VS. Inhertance     
+* focused on what a thing does and not what it is
 ---
 ## Surprise!!
 * Classes are just abstractions on top of the **Prototype Inheritance Model**
