@@ -19,7 +19,7 @@ https://cjoshmartin.com
 
 ---
 
-# Introduction (1/3)
+# Introduction
 
 #### What is a Design Pattern?
 
@@ -30,7 +30,7 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 
 ---
 
-# Introduction (2/3)
+# Introduction 
 
 #### Types of Design Patterns
 
@@ -43,36 +43,45 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 3. Behavioral
     - concerned with how objects interact
 ---
-# Introduction (3/3)
-
-#### History of React (1/2)
-
-.going-deeper[
-#### Sources
-
-* [Tom Occhino and Jordan Walke: JS Apps at Facebook](https://www.youtube.com/watch?v=GW0rj4sNH2w)
-
-* [Facebook Engineer | Creator of React.js & Reason](https://www.reactiflux.com/transcripts/jordan-walke/)
-* [React.js Conf 2015 Keynote](https://youtu.be/KVZ-P-ZI6W4)
+# State
+* Behavioral design pattern
+.center[
+![State diagram for a turnstile](img/turnstile-finite-state.png)
+![Turnstile](img/turnstile.jpg)
 ]
-* Jordan Walke is credited with creating React.JS 
-    - While working at facebook
-
-* React was created inside Facebook's Ads Organization
-    - predecessor being [XHP](https://www.facebook.com/notes/facebook-engineering/xhp-a-new-way-to-write-php/294003943919/) (PHP framework)
-
-* Created to improve speed of writing code, managing a huge codebase, and prevent cross site scripting
-
 ---
-# Introduction (3/3)
+## Stateless (Functional Based Components)
 
-#### History of React (2/2)
+```javascript
+export const props_Tacos = (props) => {
+    return (
+        <div>
+        {props.has_tacos}
+        </div>
+    )
+} 
+```
+---
+## Stateful (Class Based Components)
 
-* React's state is immuablty so that somewhere deep in that app, the views change case a conflict in the state.(a Cascading Update) (provide example)
+```javascript
+export default class Tacos extends Component {
 
-* React started out being used for the like and comment section of Facebook
+    constructor(props){
+        super(props);
+        this.state ={
+        has_tacos: false,
+        }
+    }
 
-* React became open source, out of a need to decouple itself from the Facebook site and be able to let instagram use the framework as well. (finished at JS Conf 2013)
+    render(){ 
+    
+    return( <props_Tacos {... this.state} />
+    
+    );
+ }
+}
+```
 ---
 # Scope and Immutability 
 --
@@ -330,40 +339,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prot
 
 * This Prototype modal allows to use the `new` keyword on our functions and classes in javascript.
 
+    - creates an object and check the prototype of whatever it is being called on (e.g. `const josh = new person('Josh');` )
 * Pure object use the keyword `__proto__`
 
 * functions use the keyword `prototype`
----
-# what does the `new` keyword do?
---
-
-* creates an object and check the prototype of whatever it is being called on (e.g. `const josh = new person('Josh');` )
-
---
-
-* lets create our own
-
---
-
-```javascript
-function new(this_instance)
-{
-    let obj ={} // 1) create a new object
-
-   Object.setPrototypeof(obj,this_instance.prototype) // 2) set the prototype
-
-// arguments is a reserved keyword
-  let args_arr = Array.prototype.slice.apply(arguments)
-
-// returns a class instance  || an obj 
-// 3) execute constructor with "this" & (sometimes) return created object
-   return this_instance.apply(obj,args_arr.slice(1)) || obj 
-}
-
-const josh = new(person, 'Josh');
-```
-
-https://youtu.be/Y3zzCY62NYc
 ---
 # Prototype vs Classes
 ![diff_of_proto_and_class](img/diff_proto_vs_class.png)
@@ -398,24 +377,12 @@ selector.innerHTML = say_hello.talk();
 ## Lets extand our basic "class" only using prototypes
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/8m3hon57/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 ---
+# Factories
+---
 # Adapter
+
 * Babel
 ---
-# State
----
 # Obserables
----
-class: center, middle
-# Just so you know...
----
-class: center, middle
-# if you didnt know
----
-# React is a MVC framework
-
-- Comparable to the Observer Pattern
-- (define what MVC is!)
----
-# Factories
 ---
 # End
