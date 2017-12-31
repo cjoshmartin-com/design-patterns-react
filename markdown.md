@@ -510,6 +510,7 @@ ReactDOM.render(
 # Observer
 ![observer](img/observer-pattern.jpg)
 ---
+
 # End
 .center[
 @cjoshmartin (on everything)
