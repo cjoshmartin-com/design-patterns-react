@@ -4,17 +4,14 @@ class: center, middle
 # Design Patterns in React
 
 Josh Martin
-
-https://cjoshmartin.com
-
-[contact@cjoshmartin.com](mailto:contact@cjoshmartin.com)
-
 ---
 
 # Who am I? 
 
 *   Computer Engineering Junior (specializing in Software Design and Embedded Systems) 
+
 *   Minoring Mathematics and Computer Science
+
 *   Spend most of my time programming or dancing
 
 ---
@@ -23,9 +20,9 @@ https://cjoshmartin.com
 
 #### What is a Design Pattern?
 
-A **Design Pattern** is a general repeatable solution to a commonly occurring problem in software design.
+* A **Design Pattern** is a general repeatable solution to a commonly occurring problem in software design.
 
-A **Anti-Pattern** is a common response to a recurring problem that is usually ineffective and risks being highly counterproductive
+* Design Patterns is all about writing clean, reuseable code. That is closed for modification but open for extension.
 
 
 ---
@@ -34,23 +31,52 @@ A **Anti-Pattern** is a common response to a recurring problem that is usually i
 
 #### Types of Design Patterns
 
-1. Creational
+1. **Creational**
     -   Concerned with the process of creating objects
 
-2. Structural
+2. **Structural**
     - concerned with the stuture of objects
 
-3. Behavioral
+3. **Behavioral**
     - concerned with how objects interact
 ---
+# Introduction
+
+#### Single Responsibility Principle
+
+* A class/function should only do one thing
+---
+# Introduction
+
+#### Principles of Rotton Design
+
+* **Rigidity** is how difficult is your software is to change
+
+* **Fragility** is tendency to break when someone changes the code
+
+* **Immoibility** inability to be reused in other project
+
+* **Viscosity** how hard is it to use
+.center[
+[Great Article on Rotton Design](http://www.cvc.uab.es/shared/teach/a21291/temes/object_oriented_design/materials_adicionals/principles_and_patterns.pdf)]
+---
 # State
+
+--
 * Behavioral design pattern
+
+* React has both Stateful and Stateless Components
+
 .center[
 ![State diagram for a turnstile](img/turnstile-finite-state.png)
 ![Turnstile](img/turnstile.jpg)
 ]
 ---
 ## Stateless (Functional Based Components)
+
+* uses `render`, `props`, and `context`
+
+* A lot of times used as a View
 
 ```javascript
 export const props_Tacos = (props) => {
@@ -64,6 +90,9 @@ export const props_Tacos = (props) => {
 ---
 ## Stateful (Class Based Components)
 
+* uses `render`, `state`, and `lifecycle methods`
+
+* A lot of times used as a Controller
 ```javascript
 export default class Tacos extends Component {
 
@@ -82,6 +111,7 @@ export default class Tacos extends Component {
  }
 }
 ```
+.center[[Cool Video on State](https://www.youtube.com/watch?v=YaZg8wg39QQ)]
 ---
 # Scope and Immutability 
 --
@@ -246,6 +276,7 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
 
 *   Immutability is a great feature
     - In React, `props` are immutable. Which prevents a conflict in their shared state.
+    - One way data flow 
 --
 
 .center[![broken computer](img/computer-problem.jpg)]
@@ -254,6 +285,7 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
 
 *   Immutability is a great feature
     - In React, `props` are immutable. Which prevents a conflict in their shared state.
+    - One way data flow 
 
 ![full_size_img](img/thumbs-and-money.webp)
 ---
@@ -262,6 +294,8 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
 
 *   Immutability is a great feature
     - In React, `props` are immutable. Which prevents a conflict in their shared state.
+    - One way data flow 
+
 
 .center[![bad-state](img/bad-state.jpg)]
 ---
@@ -317,11 +351,26 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 # Composition
 
 * Type of Aggregation
-    - Aggregation is when compose a component such that it made of up of other component
+    - **Aggregation** is when compose a component such that it made of up of other component
 
     - "Has a" relationship
 
-* focused on what a thing does and not what it is
+* focused on what a things does and not how things are related
+
+```html
+<App>
+
+    <Header /> 
+    <Router>
+
+        <Main />
+        <About />
+        <Projects />
+
+    </Router>
+
+</App>
+```
 ---
 ## Surprise!!
 * Classes are just abstractions on top of the **Prototype Inheritance Model**
@@ -368,6 +417,7 @@ hello.prototype.talk = function(){
 const say_hello = new hello('Josh');
 const selector = document.querySelector('.test-center');
 selector.innerHTML = say_hello.talk();
+
 ```
 ---
 ## Lets extend our basic "class" like normal
@@ -378,11 +428,94 @@ selector.innerHTML = say_hello.talk();
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/8m3hon57/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 ---
 # Factories
+
+* Creational Pattern
+
+* Use to deal with creating objects or components.
+
+```javascript
+// ./main.js (before)
+
+import Home          from './app/screens';
+import LoginScreen   from './app/screens';
+import SignupScreen  from './app/screens';
+import ProfileScreen from './app/screens';
+```
+```javascript
+// ./app/screens/index.js
+
+export { default as Home}           from "./Home"
+export { default as LoginScreen }   from "./LoginScreen"
+export { default as ProfileScreen } from "./ProfileScreen"
+export { default as SignupScreen }  from "./SignupScreen"
+```
+```javascript
+// ./main.js (after)
+
+import {Home, LoginScreen, SignupScreen, ProfileScreen } from './app/screens'
+
+```
 ---
 # Adapter
 
-* Babel
+* Structural Pattern
+
+* Converts  one type of object to another type of object that the client expects
+
+* Make up of:
+    - **Target** which is the object the client interacts
+    - **Adaptee** what the client wants to interact with but can not  
+    - **Adapter** makes the connection between the Target and Adaptee
 ---
-# Obserables
+# Adapter
+
+* Babel (JSX -> plain JS)
+
+```javascript
+class Hello extends React.Component {
+  render() {
+    return <div>Hello {this.props.toWhat}</div>;
+  }
+}
+
+ReactDOM.render(
+  <Hello toWhat="World" />,
+  document.getElementById('root')
+);
+```
+---
+# Adapter
+```javascript
+class Hello extends React.Component {
+  render() {
+    return React.createElement('div', null, `Hello ${this.props.toWhat}`);
+  }
+}
+
+ReactDOM.render(
+  React.createElement(Hello, {toWhat: 'World'}, null),
+  document.getElementById('root')
+);
+```
+.center[[Try it for yourself here](https://babeljs.io/repl/#?presets=react&code_lz=GYVwdgxgLglg9mABACwKYBt1wBQEpEDeAUIogE6pQhlIA8AJjAG4B8AEhlogO5xnr0AhLQD0jVgG4iAXyJA)]
+---
+# Observer
+
+* **Subject** maintains a list of dependents
+
+* **Observers** are what the subject notifies of any state change automatically
+
+* Key part in MVC architectural
+---
+# Observer
+![observer](img/observer-pattern.jpg)
 ---
 # End
+.center[
+@cjoshmartin (on everything)
+
+[cjoshmartin.com](http://www.cjoshmartin.com)
+
+[contact@cjoshmartin.com](mailto:contact@cjoshmartin.com)
+
+]
