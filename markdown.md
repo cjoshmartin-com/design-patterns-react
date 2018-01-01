@@ -54,7 +54,7 @@ Josh Martin
 
 * **I**nterface Segregation 
 
-* **D**epndecy Inversion 
+* **D**ependency Inversion 
 ---
 
 # Introduction
@@ -443,17 +443,6 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 
 </App>
 ```
----
-# Composition VS Inheritance
-
-
-* Should not have to create new components to achieve reuse.
-
-* Should be able to achieve all functionally needed through composing existing components.
-
-* Helps keep classes encapsulated and focused on one task.
-
-* Reuse by inheritance makes it easier to composes new components by building onto old ones.
 
 ---
 ## Surprise!!
