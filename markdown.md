@@ -92,13 +92,30 @@ Josh Martin
 
     - Should not be forced to depend on methods it does not use.
 
-* **Dependency Inversion**  * !!!
+---
+
+# Introduction
+
+#### Understanding SOLID Priniciples of Object Oriented Design
+
+* **Dependency Inversion** (Dependency injection) 
+
     - High level modules must not depend on the low level module, but they should depend on abstractions.
+.center[
+<img src="img/dependency.-inversion.jpg" height="300rem" >
+]
 ---
 # Introduction
 
 #### Principles of Rotton Design
 
+   Code is always beautiful, when it is new. 
+
+However, as the code ages it can to begin to rotton, form a few ugly warts, and a few bad hacks.
+---
+# Introduction
+
+#### Principles of Rotton Design
 * **Rigidity** is how difficult is your software is to change
 
 * **Fragility** is tendency to break when someone changes the code
@@ -396,7 +413,8 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 * "Is A" relationship 
 
 * Often Inheritance breaks encapsulation.
-    -implementation of a subclass becomes tied up with implementation fo its parent. Any changes to theparent will cause changes to the subsclass. 
+
+    - implementation of a subclass becomes tied up with implementation of its parent. Any changes to the parent will cause changes to the subclass. 
 
 .center[![Inheritance](img/inheritance.png)]
 ---
@@ -428,13 +446,12 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 ---
 # Composition VS Inheritance
 
-* Gang of four says " Favor object composition over class inheritance."
 
-    - Should not have to create new components to achieve reuse.
+* Should not have to create new components to achieve reuse.
 
-    - Should be able to achieve all functionally needed through composing existing components.
+* Should be able to achieve all functionally needed through composing existing components.
 
-    - Helps keep classes encapsulated and focused on one task.
+* Helps keep classes encapsulated and focused on one task.
 
 * Reuse by inheritance makes it easier to composes new components by building onto old ones.
 
@@ -456,7 +473,6 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 * This Prototype modal allows to use the `new` keyword on our functions and classes in javascript.
 
     - creates an object and check the prototype of whatever it is being called on (e.g. `const josh = new person('Josh');` )
-* Pure object use the keyword `__proto__`
 
 * functions use the keyword `prototype`
 ---
@@ -532,7 +548,9 @@ import {Home, LoginScreen, SignupScreen, ProfileScreen } from './app/screens'
 
 * Make up of:
     - **Target** which is the object the client interacts
+
     - **Adaptee** what the client wants to interact with but can not  
+
     - **Adapter** makes the connection between the Target and Adaptee
 ---
 # Adapter
