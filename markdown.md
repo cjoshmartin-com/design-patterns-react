@@ -6,25 +6,26 @@ class: center, middle
 Josh Martin
 ---
 
-# Who am I? 
-
-*   Computer Engineering Junior (specializing in Software Design and Embedded Systems) 
-
-*   Minoring Mathematics and Computer Science
-
-*   Spend most of my time programming or dancing
-
----
-
 # Introduction
 
 #### What is a Design Pattern?
 
 * A **Design Pattern** is a general repeatable solution to a commonly occurring problem in software design.
 
-* Design Patterns is all about writing clean, reuseable code. That is closed for modification but open for extension.
+* Design Patterns is all about writing clean, reuseable code.
+---
 
+# Introduction
 
+#### What is a Design Pattern?
+
+* Each Design Pattern has four parts:
+    - **Pattern name** a handle we can use to describe a design pattern, its solution and cosequences in a word or two.
+
+    - **Problem** describes when to use the pattern. Explains the problem and its context.
+
+    - **Solution** provides an abstract description of a problem and how a general arrangement of elements solves it.
+    - **Consequences** the results and trade-offs of applying the pattern (often space or time trade-offs).
 ---
 
 # Introduction 
@@ -35,16 +36,64 @@ Josh Martin
     -   Concerned with the process of creating objects
 
 2. **Structural**
-    - concerned with the stuture of objects
+    - concerned with the structure of objects
 
 3. **Behavioral**
     - concerned with how objects interact
 ---
+![Design Patterns](img/list-of-design-patterns.jpg)
+---
 # Introduction
 
-#### Single Responsibility Principle
+#### Understanding SOLID Priniciples of Object Oriented Design
+* **S**ingle Responsibility 
 
-* A class/function should only do one thing
+* **O**pen-close Priniciples 
+
+* **L**iskov Substitution
+
+* **I**nterface Segregation 
+
+* **D**epndecy Inversion 
+---
+
+# Introduction
+
+#### Understanding SOLID Priniciples of Object Oriented Design
+* **Single Responsibility**
+    -   A class/function should only have one job
+
+* **Open-close Priniciples**
+    -   Objects should be open for extension, but closed for modification.
+
+    -   Able to add new features/compenents without breaking code.
+
+    -   Shouldn't introduce breaking changes to existing code.
+---
+
+# Introduction
+
+#### Understanding SOLID Priniciples of Object Oriented Design
+
+* **Liskov Substitution**
+    <img src="img/LSP-example.png" height="200rem" >
+
+    - Derived classes should swapable with the class(es) it inheritances from (it's base class).
+
+    - The user of the base class should continue to function, if a derived class is passed instead. 
+---
+
+# Introduction
+
+#### Understanding SOLID Priniciples of Object Oriented Design
+
+* **Interface Segregation**
+    - A client should never be forced to implement an interface that it doesn't use 
+
+    - Should not be forced to depend on methods it does not use.
+
+* **Dependency Inversion**  * !!!
+    - High level modules must not depend on the low level module, but they should depend on abstractions.
 ---
 # Introduction
 
@@ -224,7 +273,7 @@ export default class Tacos extends Component {
 
  * `let`
     - Blocked scoped
-    - doesn't add a property on the gobal object (e.g. window), like `var` does
+    - doesn't add on properties to the gobal object (e.g. window), like `var` does
     - **Mutable** meaning the value can be changed later on
 --
 
@@ -346,6 +395,9 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 
 * "Is A" relationship 
 
+* Often Inheritance breaks encapsulation.
+    -implementation of a subclass becomes tied up with implementation fo its parent. Any changes to theparent will cause changes to the subsclass. 
+
 .center[![Inheritance](img/inheritance.png)]
 ---
 # Composition
@@ -356,6 +408,8 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
     - "Has a" relationship
 
 * focused on what a things does and not how things are related
+
+* Allows for more complex functionality
 
 ```html
 <App>
@@ -372,16 +426,29 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 </App>
 ```
 ---
+# Composition VS Inheritance
+
+* Gang of four says " Favor object composition over class inheritance."
+
+    - Should not have to create new components to achieve reuse.
+
+    - Should be able to achieve all functionally needed through composing existing components.
+
+    - Helps keep classes encapsulated and focused on one task.
+
+* Reuse by inheritance makes it easier to composes new components by building onto old ones.
+
+---
 ## Surprise!!
 * Classes are just abstractions on top of the **Prototype Inheritance Model**
 
-<iframe width="100%" height="400" src="//jsfiddle.net/cjoshmartin/7j8nxod1/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0">
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+* But what is a Prototype??
 ---
 # what is a Prototype?
 
 * Creational Design Pattern
+
+* Creating new objects by cloning other objects
 
 * Prototypes is how Javscript achieves inheritance
 
@@ -396,7 +463,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prot
 # Prototype vs Classes
 ![diff_of_proto_and_class](img/diff_proto_vs_class.png)
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model
+.center[
+[More Detail here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model)]
 ---
 ## Recreate this using prototypes
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/hak37x3b/1/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
@@ -501,19 +569,24 @@ ReactDOM.render(
 ---
 # Observer
 
-* **Subject** maintains a list of dependents
+* Behavioral Pattern
 
-* **Observers** are what the subject notifies of any state change automatically
+* Used when you have many other objects that need to receive updates when another object changes
+    - **Subject** maintains a list of dependents
+
+    - **Observers** are what the subject notifies of any state change automatically
+
+* the Subject does not need to know about the observers.
 
 * Key part in MVC architectural
 ---
-# Observer
+class: center,middle
 ![observer](img/observer-pattern.jpg)
 ---
 
-# End
 .center[
-@cjoshmartin (on everything)
+# End
+@cjoshmartin
 
 [cjoshmartin.com](http://www.cjoshmartin.com)
 
