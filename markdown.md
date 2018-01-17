@@ -186,129 +186,10 @@ However, as the code ages it can to begin to rotton, form a few ugly warts, and 
 .center[
 [Great Article on Rotton Design](http://www.cvc.uab.es/shared/teach/a21291/temes/object_oriented_design/materials_adicionals/principles_and_patterns.pdf)]
 ---
-# State
---
+class: center,middle
 
-* Behavioral design pattern
-
-* React has both Stateful and Stateless Components
-
-.center[
-![State diagram for a turnstile](img/turnstile-finite-state.png)
-![Turnstile](img/turnstile.jpg)
-]
+# Creational Patterns
 ---
-## Stateless (Functional Based Components)
-
-* uses `render`, `props`, and `context`
-
-* A lot of times used as a View
-
-```javascript
-export const props_Tacos = (props) => {
-    return (
-        <div>
-        {props.has_tacos}
-        </div>
-    )
-} 
-```
----
-## Stateful (Class Based Components)
-
-* uses `render`, `state`, and `lifecycle methods`
-
-* A lot of times used as a Controller
-```javascript
-export default class Tacos extends Component {
-
-    constructor(props){
-        super(props);
-        this.state ={
-        has_tacos: false,
-        }
-    }
-
-    render(){ 
-    
-    return( <props_Tacos {... this.state} />
-    
-    );
- }
-}
-```
-.center[[Cool Video on State](https://www.youtube.com/watch?v=YaZg8wg39QQ)]
----
-# Immutability 
-
---
-* **Mutable** meaning the value can be changed later on
-
---
-
-* **Immutable** meaning the value **cannot** be reassigned later on
-
-```javascript
-    const immutable = 'nana-a-boo-boo, you cannot change my value';
-    
-    immutable = 'I will try'; // TypeError: Assignment to constant variable.
-```
----
-
-# Immutability 
-
-*   Immutability is a great feature
-
-    - In React, `props` are immutable. Which prevents a conflict in their shared state.
-
-    - One way data flow 
----
-#  Immutability 
-
-<img src="img/one-way-dataflow.jpg" width="600px" />
----
-
-#  Immutability 
-
-*   Immutability is a great feature
-
-    - In React, `props` are immutable. Which prevents a conflict in their shared state.
-
-    - One way data flow 
---
-
-.center[![broken computer](img/computer-problem.jpg)]
----
-#  Immutability 
-
-*   Immutability is a great feature
-
-    - In React, `props` are immutable. Which prevents a conflict in their shared state.
-
-    - One way data flow 
-
-![full_size_img](img/thumbs-and-money.webp)
----
-
-#  Immutability 
-
-*   Immutability is a great feature
-
-    - In React, `props` are immutable. Which prevents a conflict in their shared state.
-
-    - One way data flow 
-
-
-.center[![bad-state](img/bad-state.jpg)]
----
-<!---
-# what an Object is in Javascript
-
-* functions are objects (crazy isn't it?)
-
---->
-
-
 # Prototype
 
 * Creational Design Pattern
@@ -374,13 +255,19 @@ selector.innerHTML = say_hello.talk();
     // TODO
 ```
 ---
+
+class: center,middle
+
+# Structual Patterns
+---
+
 # Adapter
 
 * Structural Pattern
 
-* Converts  one type of object to another type of object that the client expects
-
 * Commonally called a _wrapper_
+
+* Converts  one type of object to another type of object that the client expects
 
 * Make up of:
     - **Target** which is the object the client interacts
@@ -399,6 +286,135 @@ selector.innerHTML = say_hello.talk();
 ```javascript
 // TODO
 ```
+---
+
+class: center,middle
+
+# Behavioral Patterns
+---
+# Behavioral Patterns
+### State
+--
+
+* Behavioral design pattern
+
+* React has both Stateful and Stateless Components
+
+.center[
+![State diagram for a turnstile](img/turnstile-finite-state.png)
+![Turnstile](img/turnstile.jpg)
+]
+---
+## State
+#### Stateless (Functional Based Components)
+
+* uses `render`, `props`, and `context`
+
+* A lot of times used as a View
+
+```javascript
+export const props_Tacos = (props) => {
+    return (
+        <div>
+        {props.has_tacos}
+        </div>
+    )
+} 
+```
+---
+## State
+#### Stateful (Class Based Components)
+
+* uses `render`, `state`, and `lifecycle methods`
+
+* A lot of times used as a Controller
+```javascript
+export default class Tacos extends Component {
+
+    constructor(props){
+        super(props);
+        this.state ={
+        has_tacos: false,
+        }
+    }
+
+    render(){ 
+    
+    return( <props_Tacos {... this.state} />
+    
+    );
+ }
+}
+```
+.center[[Cool Video on State](https://www.youtube.com/watch?v=YaZg8wg39QQ)]
+---
+## State
+#### Immutability 
+
+--
+* **Mutable** meaning the value can be changed later on
+
+--
+
+* **Immutable** meaning the value **cannot** be reassigned later on
+
+```javascript
+    const immutable = 'nana-a-boo-boo, you cannot change my value';
+    
+    immutable = 'I will try'; // TypeError: Assignment to constant variable.
+```
+---
+
+## State
+#### Immutability 
+
+*   Immutability is a great feature
+
+    - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
+    - One way data flow 
+---
+## State
+
+.center[<img src="img/one-way-dataflow.jpg" width="600px" />]
+
+---
+
+## State
+#### Immutability 
+
+*   Immutability is a great feature
+
+    - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
+    - One way data flow 
+--
+
+.center[![broken computer](img/computer-problem.jpg)]
+---
+
+## State
+#### Immutability 
+*   Immutability is a great feature
+
+    - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
+    - One way data flow 
+
+![full_size_img](img/thumbs-and-money.webp)
+---
+
+## State
+#### Immutability 
+
+*   Immutability is a great feature
+
+    - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
+    - One way data flow 
+
+
+.center[![bad-state](img/bad-state.jpg)]
 ---
 # Observer
 
