@@ -13,6 +13,9 @@ Josh Martin
 * A **Design Pattern** is a general repeatable solution to a commonly occurring problem in software design.
 
 * Design Patterns is all about writing clean, reuseable code.
+
+.right[<img src="img/gang_of_four.jpg" height="350px"/>]
+
 ---
 
 # Introduction
@@ -42,6 +45,63 @@ Josh Martin
     - concerned with how objects interact
 ---
 ![Design Patterns](img/list-of-design-patterns.jpg)
+---
+# Introduction 
+
+#### Inheritance
+    
+* When an object is derived from another object
+* "Is A" relationship 
+* Often Inheritance breaks encapsulation.
+    - implementation of a subclass becomes tied up with implementation of its parent. Any changes to the parent will cause changes to the subclass. 
+
+.center[![Inheritance](img/inheritance.png)]
+---
+## Introduction 
+
+#### Composition
+
+* Type of Aggregation
+    - **Aggregation** is when compose a component such that it made of up of other component
+
+    - "Has a" relationship
+
+* focused on what a things does and not how things are related
+
+* Allows for more complex functionality
+
+```html
+<App>
+
+    <Header /> 
+    <Router>
+
+        <Main />
+        <About />
+        <Projects />
+
+    </Router>
+
+</App>
+```
+---
+# Introduction 
+#### Coupling
+--
+
+* React is loosely coupled framework
+--
+
+* **Coupling** is the degree of interdependence between software modules.
+
+    - Tighly Coupled
+    - Loosely Coupled
+--
+
+*  **Cohesion** is the degree of which elements inside a component belong together
+
+    - Loosely Coupling -> High Cohesion
+    - Tighly Coupled -> Low Cohesion
 ---
 # Introduction
 
@@ -127,8 +187,8 @@ However, as the code ages it can to begin to rotton, form a few ugly warts, and 
 [Great Article on Rotton Design](http://www.cvc.uab.es/shared/teach/a21291/temes/object_oriented_design/materials_adicionals/principles_and_patterns.pdf)]
 ---
 # State
-
 --
+
 * Behavioral design pattern
 
 * React has both Stateful and Stateless Components
@@ -179,208 +239,67 @@ export default class Tacos extends Component {
 ```
 .center[[Cool Video on State](https://www.youtube.com/watch?v=YaZg8wg39QQ)]
 ---
-# Scope and Immutability 
---
-
-* variables and functions are hoisted in javascript
-```javascript
-    // expected: ReferenceError: a is not defined
-    console.log(a) 
-    var a = 1;
-```
---
-```javascript
-    // reality: will return undefined
-    var a;
-    console.log(a)
-    a = 1;
-```
----
-# Scope and Immutability 
---
-
- * `var`
+# Immutability 
 
 --
-    - functionally scoped
---
-
-```javascript
-    // what we see
-    function tacos()
-    {
-        // ... 
-
-        for (var i=0; i< 1; i++)
-        {
-            console.log('I like tacos\n')
-        }
-    }
-```
---
-```javascript
-    // what javascript see
-    function tacos()
-    {
-        var i; // always hoisted to the top of the function
-
-        // ... 
-
-        for (i=0; i< 1; i++)
-        {
-            console.log('I like tacos\n')
-        }
-    }
-```
----
-# Scope and Immutability 
+* **Mutable** meaning the value can be changed later on
 
 --
- * `gobal variables`
 
---
-    - `var` can became globally scoped, if not inside a function
---
-
-    - Type a variable with out a variable type and that variable will become gobally scoped
-
-```javascript
-    (
-     function() {
-     for (i = 0; i < 1; i++) {i /* does nothing */ }
-     } // end of function
-    )() // this special syntax tells javascript to run the function immediately 
-
-    // expected: ReferenceError: i is not defined
-    // reality: Array starts at 1
-    console.log('Array starts at', i) 
- ```
----
-# Scope and Immutability 
-
-* How do we this problem of scope?
-
---
-    - use `"use strict";` at the top of your javascript files
-
-```javascript
-    "use strict";
-
-    (
-     function() {
-     for (i = 0; i < 1; i++) {i /* does nothing */ }
-     } // end of function
-    )() // this special syntax tells javascript to run the function immediately 
-
-    // expected: ReferenceError: i is not defined
-    // reality: ReferenceError: i is not defined
-    console.log('Array starts at', i) 
-```
-
---
-    
-* Don't use `var` 
-
---
-    - use `let` and `const` instead
----
-
-# Scope and Immutability 
---
-
- * `let`
-    - Blocked scoped
-    - doesn't add on properties to the gobal object (e.g. window), like `var` does
-    - **Mutable** meaning the value can be changed later on
---
-
-```javascript
-    // what we see
-    function tacos()
-    {
-        // ... 
-
-        for (let i=0; i< 1; i++)
-        {
-            console.log('I like tacos\n')
-        }
-    }
-```
---
-```javascript
-    // what javascript see
-    function tacos()
-    {
-        // ... 
-
-        for (let i=0; i< 1; i++)
-        {
-            console.log('I like tacos\n')
-        }
-    }
-```
-
----
-
-# Scope and Immutability 
-
---
- * `const`
-    - Blocked scoped
-    - **Immutable** meaning the value **cannot** be reassigned later on
+* **Immutable** meaning the value **cannot** be reassigned later on
 
 ```javascript
     const immutable = 'nana-a-boo-boo, you cannot change my value';
     
     immutable = 'I will try'; // TypeError: Assignment to constant variable.
 ```
-
-https://scotch.io/tutorials/understanding-hoisting-in-javascript
 ---
 
-# Scope and Immutability 
+# Immutability 
 
 *   Immutability is a great feature
+
     - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
+    - One way data flow 
+---
+#  Immutability 
+
+<img src="img/one-way-dataflow.jpg" width="600px" />
+---
+
+#  Immutability 
+
+*   Immutability is a great feature
+
+    - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
     - One way data flow 
 --
 
 .center[![broken computer](img/computer-problem.jpg)]
 ---
-# Scope and Immutability 
+#  Immutability 
 
 *   Immutability is a great feature
+
     - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
     - One way data flow 
 
 ![full_size_img](img/thumbs-and-money.webp)
 ---
 
-# Scope and Immutability 
+#  Immutability 
 
 *   Immutability is a great feature
+
     - In React, `props` are immutable. Which prevents a conflict in their shared state.
+
     - One way data flow 
 
 
 .center[![bad-state](img/bad-state.jpg)]
----
-# Coupling
---
-
-* React is loosely coupled framework
---
-
-* **Coupling** is the degree of interdependence between software modules.
-
-    - Tighly Coupled
-    - Loosely Coupled
---
-
-*  **Cohesion** is the degree of which elements inside a component belong together
-
-    - Loosely Coupling -> High Cohesion
-    - Tighly Coupled -> Low Cohesion
 ---
 <!---
 # what an Object is in Javascript
@@ -389,68 +308,8 @@ https://scotch.io/tutorials/understanding-hoisting-in-javascript
 
 --->
 
-# Class Keyword
-   
 
-* Just recently added to javascript in ECMAScript 6
-
-
-https://www.youtube.com/watch?v=Tllw4EPhLiQ
----
-## basic example of a class
-<iframe width="100%" height="310" src="//jsfiddle.net/cjoshmartin/9LvjLL31/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
----
-## Functions
-<iframe width="100%" height="400" src="//jsfiddle.net/cjoshmartin/8ehkrrgn/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
----
-## Inheritance
-<iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/hak37x3b/1/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
----
-# Inheritance
-    
-* When an object is derived from another object
-
-* "Is A" relationship 
-
-* Often Inheritance breaks encapsulation.
-
-    - implementation of a subclass becomes tied up with implementation of its parent. Any changes to the parent will cause changes to the subclass. 
-
-.center[![Inheritance](img/inheritance.png)]
----
-# Composition
-
-* Type of Aggregation
-    - **Aggregation** is when compose a component such that it made of up of other component
-
-    - "Has a" relationship
-
-* focused on what a things does and not how things are related
-
-* Allows for more complex functionality
-
-```html
-<App>
-
-    <Header /> 
-    <Router>
-
-        <Main />
-        <About />
-        <Projects />
-
-    </Router>
-
-</App>
-```
-
----
-## Surprise!!
-* Classes are just abstractions on top of the **Prototype Inheritance Model**
-
-* But what is a Prototype??
----
-# what is a Prototype?
+# Prototype
 
 * Creational Design Pattern
 
@@ -458,6 +317,7 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 
 * Prototypes is how Javscript achieves inheritance
 
+* Classes are just abstractions on top of the **Prototype Inheritance Model**
 
 * This Prototype modal allows to use the `new` keyword on our functions and classes in javascript.
 
@@ -465,11 +325,15 @@ https://www.youtube.com/watch?v=Tllw4EPhLiQ
 
 * functions use the keyword `prototype`
 ---
-# Prototype vs Classes
-![diff_of_proto_and_class](img/diff_proto_vs_class.png)
+## basic example of a class
+<iframe width="100%" height="310" src="//jsfiddle.net/cjoshmartin/9LvjLL31/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+---
+## Functions
+<iframe width="100%" height="400" src="//jsfiddle.net/cjoshmartin/8ehkrrgn/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
-.center[
-[More Detail here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model)]
+---
+## Inheritance
+<iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/hak37x3b/1/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 ---
 ## Recreate this using prototypes
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/hak37x3b/1/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
@@ -507,26 +371,7 @@ selector.innerHTML = say_hello.talk();
 * Use to deal with creating objects or components.
 
 ```javascript
-// ./main.js (before)
-
-import Home          from './app/screens';
-import LoginScreen   from './app/screens';
-import SignupScreen  from './app/screens';
-import ProfileScreen from './app/screens';
-```
-```javascript
-// ./app/screens/index.js
-
-export { default as Home}           from "./Home"
-export { default as LoginScreen }   from "./LoginScreen"
-export { default as ProfileScreen } from "./ProfileScreen"
-export { default as SignupScreen }  from "./SignupScreen"
-```
-```javascript
-// ./main.js (after)
-
-import {Home, LoginScreen, SignupScreen, ProfileScreen } from './app/screens'
-
+    // TODO
 ```
 ---
 # Adapter
@@ -534,6 +379,8 @@ import {Home, LoginScreen, SignupScreen, ProfileScreen } from './app/screens'
 * Structural Pattern
 
 * Converts  one type of object to another type of object that the client expects
+
+* Commonally called a _wrapper_
 
 * Make up of:
     - **Target** which is the object the client interacts
@@ -544,35 +391,14 @@ import {Home, LoginScreen, SignupScreen, ProfileScreen } from './app/screens'
 ---
 # Adapter
 
-* Babel (JSX -> plain JS)
-
 ```javascript
-class Hello extends React.Component {
-  render() {
-    return <div>Hello {this.props.toWhat}</div>;
-  }
-}
-
-ReactDOM.render(
-  <Hello toWhat="World" />,
-  document.getElementById('root')
-);
+// TODO
 ```
 ---
 # Adapter
 ```javascript
-class Hello extends React.Component {
-  render() {
-    return React.createElement('div', null, `Hello ${this.props.toWhat}`);
-  }
-}
-
-ReactDOM.render(
-  React.createElement(Hello, {toWhat: 'World'}, null),
-  document.getElementById('root')
-);
+// TODO
 ```
-.center[[Try it for yourself here](https://babeljs.io/repl/#?presets=react&code_lz=GYVwdgxgLglg9mABACwKYBt1wBQEpEDeAUIogE6pQhlIA8AJjAG4B8AEhlogO5xnr0AhLQD0jVgG4iAXyJA)]
 ---
 # Observer
 
