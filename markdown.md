@@ -6,21 +6,71 @@ class: center, middle
 Josh Martin
 ---
 
+class: center, middle
 # Introduction
+---
 
-#### What is a Design Pattern?
+# Introduction
+#### Structure of Presentation
+    
+--
+
+1.  What is a Design Pattern
+
+--
+
+2.  Principles of Design
+---
+
+# Introduction
+#### Structure of Presentation
+--
+
+3.  Design patterns
+
+--
+    * Creational
+        - Prototypes
+        - Factory Method
+        - Builder
+--
+
+    * Structural
+        - Adapter
+        - Composite
+        - Facade
+
+--
+    * Behavioral
+        - State
+        - Command
+        - Observer
+        - Memento
+---
+class: center, middle
+# What is a Design Pattern?
+---
+
+# What is a Design Pattern?
 
 * A **Design Pattern** is a general repeatable solution to a commonly occurring problem in software design.
 
 * Design Patterns is all about writing clean, reuseable code.
 
-.right[<img src="img/gang_of_four.jpg" height="350px"/>]
+* Help create a common language between Developers
 
+<div style="display:flex;" >
+<div>
+<img src="img/gang_of_four.jpeg" height="300px" /> 
+</div>
+<div style="flex:2;"></div>
+<div>
+<img src="img/gang_of_four.jpg" height="350px"/>
+</div>
+</div>
 ---
 
-# Introduction
-
-#### What is a Design Pattern?
+# What is a Design Pattern?
 
 * Each Design Pattern has four parts:
     - **Pattern name** a handle we can use to describe a design pattern, its solution and cosequences in a word or two.
@@ -31,7 +81,7 @@ Josh Martin
     - **Consequences** the results and trade-offs of applying the pattern (often space or time trade-offs).
 ---
 
-# Introduction 
+# What is a Design Pattern?
 
 #### Types of Design Patterns
 
@@ -46,18 +96,25 @@ Josh Martin
 ---
 ![Design Patterns](img/list-of-design-patterns.jpg)
 ---
-# Introduction 
+class: middle,center
+# Principles of Design 
+---
+# Principles of Design 
 
 #### Inheritance
     
 * When an object is derived from another object
+
 * "Is A" relationship 
+
 * Often Inheritance breaks encapsulation.
     - implementation of a subclass becomes tied up with implementation of its parent. Any changes to the parent will cause changes to the subclass. 
+---
+# Principles of Design 
 
 .center[![Inheritance](img/inheritance.png)]
 ---
-## Introduction 
+# Principles of Design 
 
 #### Composition
 
@@ -85,7 +142,7 @@ Josh Martin
 </App>
 ```
 ---
-# Introduction 
+# Principles of Design 
 #### Coupling
 --
 
@@ -103,7 +160,7 @@ Josh Martin
     - Loosely Coupling -> High Cohesion
     - Tighly Coupled -> Low Cohesion
 ---
-# Introduction
+# Principles of Design 
 
 #### Understanding SOLID Priniciples of Object Oriented Design
 * **S**ingle Responsibility 
@@ -117,7 +174,7 @@ Josh Martin
 * **D**ependency Inversion 
 ---
 
-# Introduction
+# Principles of Design 
 
 #### Understanding SOLID Priniciples of Object Oriented Design
 * **Single Responsibility**
@@ -131,7 +188,7 @@ Josh Martin
     -   Shouldn't introduce breaking changes to existing code.
 ---
 
-# Introduction
+# Principles of Design 
 
 #### Understanding SOLID Priniciples of Object Oriented Design
 
@@ -143,7 +200,7 @@ Josh Martin
     - The user of the base class should continue to function, if a derived class is passed instead. 
 ---
 
-# Introduction
+# Principles of Design 
 
 #### Understanding SOLID Priniciples of Object Oriented Design
 
@@ -154,18 +211,16 @@ Josh Martin
 
 ---
 
-# Introduction
+# Principles of Design 
 
 #### Understanding SOLID Priniciples of Object Oriented Design
 
 * **Dependency Inversion** (Dependency injection) 
 
     - High level modules must not depend on the low level module, but they should depend on abstractions.
-.center[
-<img src="img/dependency.-inversion.jpg" height="300rem" >
-]
+
 ---
-# Introduction
+# Principles of Design 
 
 #### Principles of Rotton Design
 
@@ -173,7 +228,7 @@ Josh Martin
 
 However, as the code ages it can to begin to rotton, form a few ugly warts, and a few bad hacks.
 ---
-# Introduction
+# Principles of Design 
 
 #### Principles of Rotton Design
 * **Rigidity** is how difficult is your software is to change
@@ -187,10 +242,11 @@ However, as the code ages it can to begin to rotton, form a few ugly warts, and 
 [Great Article on Rotton Design](http://www.cvc.uab.es/shared/teach/a21291/temes/object_oriented_design/materials_adicionals/principles_and_patterns.pdf)]
 ---
 class: center,middle
-
-# Creational Patterns
+# Design patterns
+### Creational Patterns
 ---
 # Prototype
+--
 
 * Creational Design Pattern
 
@@ -246,6 +302,7 @@ selector.innerHTML = say_hello.talk();
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/8m3hon57/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 ---
 # Factories
+--
 
 * Creational Pattern
 
@@ -257,11 +314,13 @@ selector.innerHTML = say_hello.talk();
 ---
 
 class: center,middle
-
-# Structual Patterns
+# Design Patterns
+### Structual Patterns
 ---
 
 # Adapter
+
+--
 
 * Structural Pattern
 
@@ -287,13 +346,14 @@ class: center,middle
 // TODO
 ```
 ---
+# Composite
+---
 
 class: center,middle
 
 # Behavioral Patterns
 ---
-# Behavioral Patterns
-### State
+# State
 --
 
 * Behavioral design pattern
