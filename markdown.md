@@ -32,7 +32,6 @@ class: center, middle
     * Creational
         - Prototypes
         - Factory Method
-        - Builder
 --
 
     * Structural
@@ -261,6 +260,9 @@ class: center,middle
     - creates an object and check the prototype of whatever it is being called on (e.g. `const josh = new person('Josh');` )
 
 * functions use the keyword `prototype`
+
+<img alt="example of proto" src="img/examples_of_prototypes.png" height="115px"/>
+
 ---
 ## basic example of a class
 <iframe width="100%" height="310" src="//jsfiddle.net/cjoshmartin/9LvjLL31/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
@@ -307,9 +309,40 @@ selector.innerHTML = say_hello.talk();
 * Creational Pattern
 
 * Use to deal with creating objects or components.
+* classes can be choosing at run-time 
+---
+# Factories
+.center[![brands slider](img/brands.png)]
+---
+# Factories
+.center[![brands slider](img/articles.png)]
+---
 
+# Factories
 ```javascript
-    // TODO
+const  items = [
+   {	
+	      source: ‘brand’,
+      	title: ‘title’
+   }	
+]
+const renderedItems = items.map((item) => SlideFactory.build(item));
+```
+--
+```javascript 
+export default class SlideFactory {
+    static build(data) {
+        switch (data.source) {
+            case 'brand':
+                return <BrandFeedSlide slideData={data}/>;
+            case 'article':
+                return <ArticleFeedSlide slideData={data} />;
+            default:
+                return undefined;
+        }
+    }
+}
+
 ```
 ---
 
@@ -338,12 +371,17 @@ class: center,middle
 # Adapter
 
 ```javascript
-// TODO
+HTTP.get('https://jsonplaceholder.typicode.com/posts/1', (error, response) => {
+  if (error) {
+      console.log(error);
+        } else {
+            console.log(response);
+              }
+              });
 ```
----
-# Adapter
+--
 ```javascript
-// TODO
+JSONPlaceholder.posts('get', 1);
 ```
 ---
 # Composite
