@@ -20,31 +20,32 @@ class: center, middle
 --
 
 2.  Principles of Design
+
+3.  Design patterns
 ---
 
 # Introduction
-#### Structure of Presentation
+### Structure of Presentation
 --
 
-3.  Design patterns
+####  Design patterns
 
 --
-    * Creational
-        - Prototypes
-        - Factory Method
+* Creational
+    - Prototypes
+    - Factory Method
 --
 
-    * Structural
-        - Adapter
-        - Composite
-        - Facade
+* Structural
+    - Adapter
+    - Composite
 
 --
-    * Behavioral
-        - State
-        - Command
-        - Observer
-        - Memento
+* Behavioral
+    - State
+    - Command
+    - Observer
+    - Memento
 ---
 class: center, middle
 # What is a Design Pattern?
@@ -126,6 +127,10 @@ class: middle,center
 
 * Allows for more complex functionality
 
+---
+# Principles of Design 
+
+#### Composition
 ```html
 <App>
 
@@ -240,8 +245,8 @@ However, as the code ages it can to begin to rotton, form a few ugly warts, and 
 .center[
 [Great Article on Rotton Design](http://www.cvc.uab.es/shared/teach/a21291/temes/object_oriented_design/materials_adicionals/principles_and_patterns.pdf)]
 ---
-class: center,middle
-# Design patterns
+class: center
+# Design Patterns
 ### Creational Patterns
 ---
 # Prototype
@@ -261,7 +266,7 @@ class: center,middle
 
 * functions use the keyword `prototype`
 
-<img alt="example of proto" src="img/examples_of_prototypes.png" height="115px"/>
+.center[<img alt="example of proto" src="img/examples_of_prototypes.png" height="115px"/>]
 
 ---
 ## basic example of a class
@@ -303,7 +308,7 @@ selector.innerHTML = say_hello.talk();
 ## Lets extand our basic "class" only using prototypes
 <iframe width="100%" height="500" src="//jsfiddle.net/cjoshmartin/8m3hon57/embedded/js,result/" allowpaymentrequest allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 ---
-# Factories
+# Factory Method
 --
 
 * Creational Pattern
@@ -311,14 +316,17 @@ selector.innerHTML = say_hello.talk();
 * Use to deal with creating objects or components.
 * classes can be choosing at run-time 
 ---
-# Factories
+# Factory Method
+#### Brands Component
 .center[![brands slider](img/brands.png)]
 ---
-# Factories
-.center[![brands slider](img/articles.png)]
+# Factory Method
+#### Articles Component
+.center[![Articles slider](img/articles.png)]
 ---
 
-# Factories
+# Factory Method
+#### Data
 ```javascript
 const  items = [
    {	
@@ -329,6 +337,8 @@ const  items = [
 const renderedItems = items.map((item) => SlideFactory.build(item));
 ```
 --
+
+#### Factory
 ```javascript 
 export default class SlideFactory {
     static build(data) {
@@ -346,7 +356,7 @@ export default class SlideFactory {
 ```
 ---
 
-class: center,middle
+class: center
 # Design Patterns
 ### Structual Patterns
 ---
@@ -385,11 +395,48 @@ JSONPlaceholder.posts('get', 1);
 ```
 ---
 # Composite
+
+* Basically just a Tree, that can represents both primitives and their containers.
+
+<img src="img/uml_composite_pattern.jpg" />
+
+---
+# Composite
+* `render()` function creates a tree of React Elements
+
+    - on the next state change or update of props, the `render()` function will return the different in the tree of React elements
+
+* React Algorthim for constructing the trees has a time complexity of **O(n)**
+
+.center[<img src="img/should-component-update.png" height="300px" />]
+---
+# Composite
+```javascript
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.color !== nextProps.color) {
+      return true;
+    }
+    if (this.state.count !== nextState.count) {
+      return true;
+    }
+    return false;
+  }
+
+```
+
+```javascript 
+ReactDOM.umountCompenentAtNode(container)
+
+ReactDOM.findDOMNode(component)
+
+ReactDOM.createPortal(child, container) // add nodes to the tree
+```
 ---
 
-class: center,middle
+class: center
 
-# Behavioral Patterns
+# Design Patterns
+### Behavioral Patterns
 ---
 # State
 --
@@ -514,7 +561,16 @@ export default class Tacos extends Component {
 
 .center[![bad-state](img/bad-state.jpg)]
 ---
+# Command 
+--
+
+* Behavioral Pattern
+
+* A generic way to call a functon without know it's complex behavior
+    - `render()` function would be an example of this
+---
 # Observer
+--
 
 * Behavioral Pattern
 
