@@ -57,7 +57,7 @@ class: center, middle
 
 * Design Patterns is all about writing clean, reuseable code.
 
-* Help create a common language between Developers
+* Helps create a common language between Developers
 
 <div style="display:flex;" >
 <div>
@@ -568,6 +568,71 @@ export default class Tacos extends Component {
 
 * A generic way to call a functon without know it's complex behavior
     - `render()` function would be an example of this
+    - Another example on next slide
+---
+# Command
+```javascript
+class Commands {
+
+  constructor() {
+    this._commands = [];
+  }
+
+  store(command) {
+    this._commands.push(command);
+  }
+
+  execute() {
+    const top = this._commands.pop();
+    top.execute(); // helps makes commands more general
+  }
+
+  numberOfCommands() {
+    return this._commands.length;
+  }
+}
+```
+---
+# Command
+```javascript
+class Add {
+  constructor(num1, num2) {
+    this.num1 = num1;
+    this.num2 = num2;
+  }
+  execute() {
+    console.log(' The sum of these numbers:', this.num1 + this.num2);
+  }
+}
+
+class Subtract {
+  constructor(num1, num2) {
+    this.num1 = num1;
+    this.num2 = num2;
+  }
+  execute() {
+    console.log(' The subtraction of these numbers:', this.num1 - this.num2);
+  }
+}
+```
+---
+# Command
+
+```javascript
+const cmd = new Commands();
+
+cmd.store(new Add(3, 2));
+cmd.store(new Subtract(3, 2));
+```
+```javascript
+while (cmd.numberOfCommands() > 0) {
+  cmd.execute();
+}
+```
+```bash
+ The subtraction of these numbers: 1
+ The sum of these numbers: 5
+ ```
 ---
 # Observer
 --
