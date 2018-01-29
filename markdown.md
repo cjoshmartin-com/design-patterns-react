@@ -20,32 +20,38 @@ class: center, middle
 --
 
 2.  Principles of Design
+--
 
 3.  Design patterns
 ---
 
 # Introduction
-### Structure of Presentation
+#### Structure of Presentation
 --
 
 ####  Design patterns
 
 --
 * Creational
+--
+
     - Prototypes
     - Factory Method
 --
 
 * Structural
+--
+
     - Adapter
     - Composite
 
 --
 * Behavioral
+--
+
     - State
     - Command
     - Observer
-    - Memento
 ---
 class: center, middle
 # What is a Design Pattern?
